@@ -1,0 +1,133 @@
+Name:Bonla Fred Hubert
+Option: CSE/Fullstack Top-up
+Course: API Design and integration
+
+section a: API Design
+1) Users
+Endpoint: /users
+Methods:
+GET /users: Retrieve a list of users.
+POST /users: Create a new user.
+GET /users/{userId}: Retrieve a specific user by ID.
+PUT /users/{userId}: Update a specific user by ID.
+DELETE /users/{userId}: Delete a specific user by ID.
+
+example:
+{
+  "id": "123",
+  "name": "John Doe",
+  "email": "john.doe@example.com"
+}
+
+Orders
+Endpoint: /orders
+Methods:
+GET /orders: Retrieve a list of orders.
+POST /orders: Create a new order.
+GET /orders/{orderId}: Retrieve a specific order by ID.
+PUT /orders/{orderId}: Update a specific order by ID.
+DELETE /orders/{orderId}: Delete a specific order by ID.
+
+example
+{
+  "id": "789",
+  "userId": "123",
+  "procedureId": "456",
+  "status": "Pending"
+}
+
+Product
+Endpoint: /product
+Methods:
+GET /orders: Retrieve a list of orders.
+POST /orders: Create a new ptoduct.
+GET /orders/{productId}: Retrieve a specific product by ID.
+PUT /orders/{productId}: Update a specific product by ID.
+DELETE /orders/{productId}: Delete a specific product by ID.
+
+example
+{
+  "productid": "789",
+  "status": "Pending"
+}
+
+2)
+For the case of Users
+GET /users
+Action: Retrieve a list of all users.
+Description: This method fetches data without modifying it, allowing clients to view existing users.
+
+POST /users
+Action: Create a new user.
+Description: This method sends data to the server to create a new user resource. The server processes the request and typically returns the newly created user object.
+
+GET /users/{userId}
+Action: Retrieve a specific user by ID.
+Description: This method fetches the details of a specific user, identified by their unique ID, without altering any data.
+
+PUT /users/{userId}
+Action: Update a specific user by ID.
+Description: This method sends updated data for an existing user to the server, replacing the current user information with the new data provided.
+
+DELETE /users/{userId}
+Action: Delete a specific user by ID.
+Description: This method removes the user resource from the server, effectively deleting the user.
+
+3)
+*Use Appropriate HTTP Status Codes:
+-Use standard HTTP status codes to indicate the type of error. This helps clients understand the nature of the problem.
+
+*Log Errors:
+-Log errors on the server side for monitoring and debugging purposes. This can help identify patterns and recurring issues.
+
+*Provide Meaningful Messages:
+-Ensure that error messages are clear and informative, helping developers understand what went wrong and how to fix it.
+
+400 Bad Request:
+Scenario: The request is malformed or invalid (e.g., missing required fields, invalid data types).
+Example: A user tries to create an account without providing an email address.
+
+404 Not Found:
+Scenario: The requested resource could not be found.
+Example: A user tries to retrieve a user profile that does not exist.
+
+4)*Basic Authentication:
+Overview: This is a simple authentication scheme built into the HTTP protocol. It involves sending user credentials (username and password) encoded in Base64.
+Implementation: While easy to implement, it is not recommended for production environments without HTTPS, as credentials can be easily intercepted.
+
+-Role-Based Access Control :
+Overview: RBAC restricts access to resources based on the roles assigned to users. Each role has specific permissions associated with it.
+Implementation: When a user logs in, their role is determined, and the API checks this role against the requested resource to grant or deny access.
+
+5)Token Bucket:Tokens are added to the bucket at a fixed rate, and each request consumes a token. If the bucket is empty, requests are denied until tokens are available again.
+
+
+section b: implementation
+6) Install Python:
+Ensure you have Python installed on your machine. Django requires Python 3.6 or higher. You can download it from the official Python website.
+
+Step 2: Create a Virtual Environment
+Create the Virtual Environment:
+ -Navigate to your project directory and create a virtual environment
+ mkdir my_ecommerce_project
+ cd my_ecommerce_project
+ virtualenv venv
+ 
+-Activate the virtual environment to isolate your project’s dependencies 
+-Install Django:Depending on your e-commerce application’s requirements, you may need additional packages such as;
+pip install djangorestframework 
+pip install Pillow 
+
+7)Install Python:
+Ensure you have Python installed on your machine. Django requires Python 3.6 or higher. You can download it from the official Python website.
+-Install pip:
+Pip is the package installer for Python. It usually comes with Python installations
+
+-Start a New Django Project:
+ Create a new Django project using the following command:"django-admin startproject myshop" 
+ 
+ -Configure Database Connection
+Open settings.py in your project directory, locate and open the settings.py file found in the myshop folder.
+
+-Set Up Static Files:
+In settings.py, configure the static files settings
